@@ -89,7 +89,7 @@ function App() {
 					</CardContent>
 					<CardContent className="text-left">
 						<p>01348/6723 7+</p>
-						<p className="mt-2">Mtr: 0245789693</p>
+						<p className="mt-2">Mtr: 20245789693</p>
 						<p className="mt-2">Rate: 1B</p>
 					</CardContent>
 

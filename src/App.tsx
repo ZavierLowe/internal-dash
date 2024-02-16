@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from "@/components/ui/button"
-import { Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle, } from "@/components/ui/card"
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { Button } from "@/components/ui/button";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 
 import {
 	Table,
@@ -19,11 +21,17 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
+import useSWR from "swr";
+import axios from "axios";
 
+
+
+
+
+	const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 function App() {
-
-  const invoices = [
+	const invoices = [
 		{
 			date: "02/12/2024",
 			paymentStatus: "Paid",
@@ -67,9 +75,25 @@ function App() {
 			paymentMethod: "Credit Card",
 		},
 	];
+
+
+
+
+	const { data, error, isLoading } = useSWR(
+		"http://localhost:3001/customers/1",
+		fetcher,
+	);
+
+	if (error) return "an error has occured";
+
+	if (isLoading) return "Loading...";
+
+
+
+  console.log(data);
   
 
-  return (
+	return (
 		<>
 			<Card className="w-full  ">
 				<div className="flex flex-row w-full">
@@ -83,8 +107,8 @@ function App() {
 				</div>
 				<div className="flex grid-cols-4 gap-20">
 					<CardContent className="text-left ">
-						<p className="font-bold ">Janet Jackson</p>
-						<p className="mt-2">7979 Beverley Hills Ave.</p>
+						<p className="font-bold ">{data.firstName} <span>{data.lastName}</span></p>
+						<p className="mt-2">{data.address}</p>
 						<p className="mt-2"> PH </p>
 					</CardContent>
 					<CardContent className="text-left">
@@ -107,14 +131,14 @@ function App() {
 					</CardContent>
 					<CardContent className="text-left">
 						<p>
-							Current Balance: <span>$50,000.00</span>{" "}
+							Current Balance: <span>${data.currentBalance}</span>{" "}
 						</p>
 						<p className="mt-2">
 							{" "}
-							Past Balance: <span>$50,000.00</span>
+							Past Balance: <span>${data.pastBalance}</span>
 						</p>
 						<p className="mt-2">
-							Total Balance: <span>$100,000.00</span>
+							Total Balance: <span>${data.totalBalance}</span>
 						</p>
 					</CardContent>
 				</div>
@@ -139,16 +163,18 @@ function App() {
 							</TableRow>
 						</TableHeader>
 						<TableBody>
-              {invoices.map ((invoice) =>(
-
-
-							<TableRow key={invoice.invoice}> 
-								<TableCell className="font-medium text-left">{invoice.date}</TableCell>
-								<TableCell>{invoice.paymentStatus}</TableCell>
-								<TableCell>{invoice.paymentMethod}</TableCell>
-								<TableCell className="text-right">{invoice.totalAmount}</TableCell>
-							</TableRow>
-              ))}
+							{invoices.map((invoice) => (
+								<TableRow key={invoice.invoice}>
+									<TableCell className="font-medium text-left">
+										{invoice.date}
+									</TableCell>
+									<TableCell>{invoice.paymentStatus}</TableCell>
+									<TableCell>{invoice.paymentMethod}</TableCell>
+									<TableCell className="text-right">
+										{invoice.totalAmount}
+									</TableCell>
+								</TableRow>
+							))}
 						</TableBody>
 					</Table>
 				</div>
@@ -157,4 +183,4 @@ function App() {
 	);
 }
 
-export default App
+export default App;

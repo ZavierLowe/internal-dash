@@ -1,10 +1,11 @@
 import React from 'react'
+import Button from '../../components/ui/Button';
 
 const AccountInquiry = () => {
   return (
 		<div className="mx-auto container mt-2">
-			<div className="p-8 border border-black">
-				<h1 className="text-2xl font-bold">Account Banner</h1>
+			<div className="p-8 border border-black shadow-md">
+				<h1 className="text-2xl font-bold text-blue-800">Account Banner</h1>
 				<div className="grid grid-cols-4 mt-8">
 					<div className="flex flex-col space-y-4">
 						<div>First and Last Name</div>
@@ -46,6 +47,7 @@ const AccountInquiry = () => {
 						</div>
 					</div>
 				</div>
+                <Button variant='secondary' size='lg'>Red</Button>
 			</div>
 		</div>
 	);

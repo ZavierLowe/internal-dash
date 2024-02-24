@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 import AccountInquiry from './pages/Customer/AccountInquiry.tsx'
+import MainDashboardPage from './pages/Dashboard/MainDashboardPage'
 
 
 const router = createBrowserRouter([
@@ -16,7 +17,11 @@ const router = createBrowserRouter([
   {
     path:'/AccountInquiry',
     element:<AccountInquiry/>
-  }
+  },
+  {
+    path:'/MainDashboard',
+    element:<MainDashboardPage/>
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

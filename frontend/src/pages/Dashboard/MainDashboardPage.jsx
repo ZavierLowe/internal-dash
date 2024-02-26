@@ -2,6 +2,7 @@ import React from 'react'
 import SideBar from '../../components/Sidebar/SideBar'
 import { Card } from '@tremor/react';
 import Chart from '../../components/ui/Chart'
+import  { DonutChartHero } from '../../components/ui/DonutChart'
 import { Icon } from "@tremor/react";
 import { RiMoneyDollarBoxFill, RiMoneyDollarBoxLine, RiMoneyDollarCircleFill, RiWallet2Fill, RiWallet3Fill } from '@remixicon/react';
 
@@ -54,7 +55,7 @@ const MainDashboardPage = () => {
 							</h4>
 							</div>
 							<p className="text-tremor-metric font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
-								$71,465
+								$54,465
 							</p>
 						</Card>
 						<Card className="bg-white " decoration="left" decorationColor="cyan">
@@ -66,18 +67,22 @@ const MainDashboardPage = () => {
 							</h4>
 							</div>
 							<p className="text-tremor-metric font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
-								$71,465
+								23,465
 							</p>
 						</Card>
 						
 					</div>
-					<div className="w-full">
-						<div className="h-[600px]">
+					<div className="w-full ">
+						
 							<Card className="">
 								<Chart></Chart>
 							</Card>
-						</div>
+						
 					</div>
+					<Card className='mt-12'> 
+						<h4 className='text-tremor-metric font-semibold'> Sales by Location</h4>
+					<DonutChartHero></DonutChartHero>
+					</Card>
 				</section>
 			</div>
 		</div>

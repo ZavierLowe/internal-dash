@@ -4,7 +4,8 @@ import { Card } from '@tremor/react';
 import Chart from '../../components/ui/Chart'
 import  { DonutChartHero } from '../../components/ui/DonutChart'
 import { Icon } from "@tremor/react";
-import { RiMoneyDollarBoxFill, RiMoneyDollarBoxLine, RiMoneyDollarCircleFill, RiWallet2Fill, RiWallet3Fill } from '@remixicon/react';
+import { RiMoneyDollarCircleFill, RiWallet3Fill } from '@remixicon/react';
+import Bar from '../../components/ui/Bar'
 
 const MainDashboardPage = () => {
   return (
@@ -34,55 +35,71 @@ const MainDashboardPage = () => {
 					</h1>
 
 					<div className="my-12  grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-						<Card className="bg-white " decoration="left" decorationColor="cyan">
-							<div className='flex items-center'>
-								
-							<Icon size='sm' icon={RiMoneyDollarCircleFill} />
-							<h4 className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-								Sales
-							</h4>
+						<Card
+							className="bg-white "
+							decoration="left"
+							decorationColor="cyan">
+							<div className="flex items-center">
+								<Icon size="sm" icon={RiMoneyDollarCircleFill} />
+								<h4 className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
+									Sales
+								</h4>
 							</div>
 							<p className="text-tremor-metric font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
 								$71,465
 							</p>
 						</Card>
-						<Card className="bg-white " decoration="left" decorationColor="cyan">
-							<div className='flex items-center'>
-								
-							<Icon size='sm' icon={RiWallet3Fill} />
-							<h4 className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-								Revenue
-							</h4>
+						<Card
+							className="bg-white "
+							decoration="left"
+							decorationColor="cyan">
+							<div className="flex items-center">
+								<Icon size="sm" icon={RiWallet3Fill} />
+								<h4 className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
+									Revenue
+								</h4>
 							</div>
 							<p className="text-tremor-metric font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
 								$54,465
 							</p>
 						</Card>
-						<Card className="bg-white " decoration="left" decorationColor="cyan">
-							<div className='flex items-center'>
-								
-							<Icon size='sm' icon={RiMoneyDollarCircleFill} />
-							<h4 className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-								Orders
-							</h4>
+						<Card
+							className="bg-white "
+							decoration="left"
+							decorationColor="cyan">
+							<div className="flex items-center">
+								<Icon size="sm" icon={RiMoneyDollarCircleFill} />
+								<h4 className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
+									Orders
+								</h4>
 							</div>
 							<p className="text-tremor-metric font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
 								23,465
 							</p>
 						</Card>
-						
 					</div>
 					<div className="w-full ">
-						
-							<Card className="">
-								<Chart></Chart>
-							</Card>
-						
+						<Card className="">
+							<Chart></Chart>
+						</Card>
 					</div>
-					<Card className='mt-12'> 
-						<h4 className='text-tremor-metric font-semibold'> Sales by Location</h4>
-					<DonutChartHero></DonutChartHero>
-					</Card>
+					<div className="flex space-x-6">
+						<Card className="mt-12 w-1/2">
+							<h4 className="text-tremor-title font-semibold mb-8">
+								{" "}
+								Sales by Location
+							</h4>
+							<DonutChartHero></DonutChartHero>
+						</Card>
+
+						<Card className="mt-12 w-1/2">
+							<h4 className="text-tremor-title font-semibold mb-8">
+								{" "}
+								Sales by Location
+							</h4>
+							<Bar/>
+						</Card>
+					</div>
 				</section>
 			</div>
 		</div>
